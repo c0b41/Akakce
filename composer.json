@@ -1,0 +1,22 @@
+{
+    "name": "c0b41/sm-akakce",
+    "description": "Laravel Akakçe Service Provider",
+    "type": "laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ayhankuru",
+            "email": "ayhankuru@yandex.com.tr"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SM\\Akakce\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
