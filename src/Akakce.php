@@ -2,10 +2,9 @@
 
 namespace SM\Akakce;
 
-use SM\Akakce\AkakceProduct;
+use SM\Akakce\AkakceProduct\Product;
 use SM\Akakce\AkakceException;
-use Illuminate\Support\Facades\View;
-use SimpleXMLElement;
+use Philo\Blade\Blade;
 
 
 class Akakce {
@@ -15,7 +14,7 @@ class Akakce {
        $this->products = [];
    	}
 
-	public function addProduct($product){
+	public function addProduct(Product $product){
 		array_push($this->products, $product);
 	}
 
@@ -26,7 +25,11 @@ class Akakce {
 	}
 
 	public function render(){
-		return view('products', [ 'products' => $this->products() ]);
+		$views = __DIR__;
+		$cache = __DIR__ . '/cache';
+		$blade = new Blade($views, $cache);
+
+		return $blade->view()->make('products', [ 'products' => $this->getProducts() ])->render();
 	}
 	
 }

@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	@foreach ($products as $product)
-      @if (!isnull($product->getSku()))
+	  <product>
+      @if (!empty($product->getName()))
+        <name>{{ $product->getName() }}</name>
+	  @endif
+	  @if (!empty($product->getSku()))
         <sku>{{ $product->getSku() }}</sku>
 	  @endif
-	  @if (!isnull($product->getName()))
-        <name>{{ $product->getName() }}</name>
-	  @endif
-	  @if (!isnull($product->getName()))
-        <name>{{ $product->getName() }}</name>
-	  @endif
-	  @if (!isnull($product->getUrl()))
+	  @if (!empty($product->getUrl()))
         <url>{{ $product->getUrl() }}</url>
 	  @endif
-	  @if (!isnull($product->getImgUrl()))
+	  @if (!empty($product->getImgUrl()))
         <imgUrl>{{ $product->getImgUrl() }}</imgUrl>
 	  @endif
-	  @if (!isnull($product->getDescription()))
+	  @if (!empty($product->getDescription()))
         <description><![CDATA[ {{ $product->getDescription() }} ]]></description>
 	  @endif
-	  @if (!isnull($product->getDistributor()))
+	  @if (!empty($product->getDistributor()))
         <distributor>{{ $product->getDistributor() }}</distributor>
 	  @endif
-	  @if (!isnull($product->getPrice()))
+	  @if (!empty($product->getPrice()))
         <price>{{ $product->getPrice() }}</price>
 	  @endif
-	  @if (!isnull($product->getAdditionalImages()))
+	  @if (!empty($product->getAdditionalImages()))
         @foreach ($product->getAdditionalImages() as $image)
         	<imgUrl>{{ $image }}</imgUrl>
         @endforeach
 	  @endif
-	  @if (!isnull($product->getShipPrice()))
+	  @if (!empty($product->getShipPrice()))
         <shipPrice>{{ $product->getShipPrice() }}</shipPrice>
 	  @endif
-	  @if (!isnull($product->getShipmentVolume()))
+	  @if (!empty($product->getShipmentVolume()))
         <shipmentVolume>{{ $product->getShipmentVolume() }}</shipmentVolume>
 	  @endif
-	  @if (!isnull($product->getShipmentDayOfDelivery()))
-        <dayOfDelivery>{{ $product->getShipmentDayOfDelivery() }}</dayOfDelivery>
+	  @if (!empty($product->getDayOfDelivery()))
+        <dayOfDelivery>{{ $product->getDayOfDelivery() }}</dayOfDelivery>
 	  @endif
-	  @if (!isnull($product->getExpressDeliveryTime()))
+	  @if (!empty($product->getExpressDeliveryTime()))
         <expressDeliveryTime>{{ $product->getExpressDeliveryTime() }}</expressDeliveryTime>
 	  @endif
-	  @if (!isnull($product->getQuantity()))
+	  @if (!empty($product->getQuantity()))
         <quantity>{{ $product->getQuantity() }}</quantity>
 	  @endif
-	  @if (!isnull($product->getProductBrand()))
+	  @if (!empty($product->getProductBrand()))
         <productBrand>{{ $product->getProductBrand() }}</productBrand>
 	  @endif
-	  @if (!isnull($product->getProductCategory()))
+	  @if (!empty($product->getProductCategory()))
         <productCategory>{{ $product->getProductCategory() }}</productCategory>
 	  @endif
-	  @if (!isnull($product->getBarcode()))
+	  @if (!empty($product->getBarcode()))
         <barcode>{{ $product->getBarcode() }}</barcode>
 	  @endif
+	  </product>
     @endforeach
 </products>
