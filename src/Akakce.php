@@ -13,14 +13,14 @@ class Akakce {
 	public $uri = 'http://www.akakce.com/akakcem/online-store/siparis-yonetimi/api/orderServices.asmx?wsdl';
 	public $sandbox = 'http://178.251.45.210:8080/orderServices/orderServices.asmx?wsdl';
 	
-	function __construct($conf) {
+	function __construct($conf = null) {
 
 		if(!isset($conf['username']) && !isset($conf['password'])) {
       		throw new AkakceException("Akakçe Ayarları Girilmedi");
 	    }
 
-	    self::conf = $conf;
-	    self::setFunctions();  
+	    $this->conf = $conf;
+	    $this->setFunctions();  
    	}
 
 
@@ -41,7 +41,7 @@ class Akakce {
    	}
 
    	private function setFunctions(){
-		 self::funcs = [
+		 $this->funcs = [
 			 [
 			 	"name" => 'Orders',
 			 	"reqName" => "getOrders",
